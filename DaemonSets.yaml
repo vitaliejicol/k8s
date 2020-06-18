@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ubuntu-ds
+  labels:
+    app: k8-service
+spec:
+  selector:
+    matchLabels: 
+      app: k8-service 
+  template:
+    metadata:
+      labels:
+        app: k8-service
+      name: ubuntu-pod
+    spec:
+      containers:
+      - name: ubuntu
+        image: ubuntu
+        stdin: true
+        tty: true
