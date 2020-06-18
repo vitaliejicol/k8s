@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: my-replica
+  labels:
+    app: k8-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels: 
+      app: k8-service 
+  template:
+    metadata:
+      labels:
+        app: k8-service
+      name: nginx-pod
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+          protocol: TCP
+
+---
+apiVersion: v1 
+kind: Service  
+metadata: 
+  name: my-service
+spec:
+  type: NodePort
+  selector: 
+    app: k8-service
+  ports:
+  - name: my-app
+    port: 81
+    targetPort: 80
+    protocol: TCP
