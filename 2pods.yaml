@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mount
+spec:
+  containers:
+  - name: redis
+    image: redis
+    volumeMounts:
+    - name: secret-volume
+      mountPath: "/credentials"
+  volumes:
+  - name: secret-volume
+    secret:
+      secretName: super-secret
+      
+      
+apiVersion: v1
+kind: Pod
+metadata:
+  name: env-var
+spec:
+  containers:
+  - env:
+    - name: CONFIDENTIAL
+      valueFrom:
+        secretKeyRef:
+          name: super-secret
+          key: username
+    image: redis
+    name: redis
