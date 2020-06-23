@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: DaemonSet 
+metadata:
+  name: ununtu-ds 
+  labels: 
+    app: ubuntu-ds 
+spec: 
+  selector: 
+    matchLabels: 
+      app: ubuntu-ds-pod 
+  template: 
+    metadata: 
+      labels: 
+        app: ubuntu-ds-pod 
+    spec: 
+      containers: 
+      - image: nginx 
+        name: ubuntu-ds
