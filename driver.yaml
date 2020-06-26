@@ -1,0 +1,15 @@
+kind: DaemonSet
+metadata:
+  name: driver
+spec:
+  selector:
+    matchLabels:
+      app: driver
+  template:
+    metadata:
+      labels:
+        app: driver
+    spec:
+      containers:
+      - name: fluentd
+        image: fluentd
