@@ -1,7 +1,7 @@
 # k8s
 ## HOW TO CREATE A KUBERNETES CLUSTER [on Digital Ocean]
 Prerequsites:
-- 3 CentOS droplets (k8-master, k8-node01, k8-node02)
+- 3 CentOS7 droplets (k8-master, k8-node01, k8-node02)
 - 4 GB/2 CPUs
 - ssh key attached
 
