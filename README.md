@@ -1,12 +1,16 @@
 # k8s
-## HOW TO CREATE A KUBERNETES CLUSTER
+## HOW TO CREATE A KUBERNETES CLUSTER [on Digital Ocean]
+Prerequsites:
+- 3 CentOS droplets (k8-master, k8-node01, k8-node02)
+- 4 GB/2 CPUs
+- ssh key attached
 
 ```
 #ON_MASTER_NODE
 
-echo -e "209.97.157.212\tmaster" >> /etc/hosts
-echo -e "165.227.96.210\tnode1" >> /etc/hosts
-echo -e "167.71.249.234\tnode2" >> /etc/hosts
+echo -e "209.97.157.212\tk8-master" >> /etc/hosts
+echo -e "165.227.96.210\tk8-node01" >> /etc/hosts
+echo -e "167.71.249.234\tk8-node02" >> /etc/hosts
 sed -i s/"SELINUX=enforcing"/"SELINUX=permissive"/ /etc/sysconfig/selinux
 setenforce 0
 cp /etc/fstab /root/ && sed -i /"swap"/d /etc/fstab && swapoff -a
