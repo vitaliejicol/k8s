@@ -36,7 +36,7 @@ systemctl restart docker
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
 ```
-#ON_NODE01
+#ON_WORKER_NODE01
 
 echo "k8-node01" > /etc/hostname 
 hostname k8-node01
@@ -72,7 +72,7 @@ kubeadm join 209.97.157.212:6443 --token XXXXXXX.XXXXXXXXXX     --discovery-toke
 ```
 
 ```
-#ON_NODE02
+#ON_WORKER_NODE02
 
 echo "k8-node02" > /etc/hostname 
 hostname k8-node02
